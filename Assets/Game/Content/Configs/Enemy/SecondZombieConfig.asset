@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89c6aa52d036b774c94082c2a4f98d54, type: 3}
-  m_Name: FirstZombieConfig
+  m_Name: SecondZombieConfig
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 100
   <MovementSpeed>k__BackingField: 1
-  <View>k__BackingField: {fileID: 2909458389969618144, guid: 87711ca7656323542bb2278dc189ac75, type: 3}
+  <View>k__BackingField: {fileID: 8649057909398568263, guid: e769dd2696144034593a7d44812cdb92, type: 3}

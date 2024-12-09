@@ -15,7 +15,6 @@ namespace Game.Scripts.Enemy
         public void Construct(EnemyModel enemyModel)
         {
             _speed = enemyModel.Speed;
-            
             HealthBar.Construct(enemyModel.MaxHealth);
         }
 
@@ -32,9 +31,14 @@ namespace Game.Scripts.Enemy
 
         private IEnumerator Move(Vector3 direction)
         {
+            var newScale = transform.localScale;
+            newScale.x *= direction.x;
+            transform.localScale = newScale;
+            
             while (true)
             {
-                transform.position += direction * (_speed * Time.deltaTime);
+                var pos = direction * (_speed * Time.deltaTime);
+                transform.position += pos;
                 yield return null;
             }
         }

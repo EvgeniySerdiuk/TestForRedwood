@@ -1354,6 +1354,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2069844078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2069844080}
+  - component: {fileID: 2069844079}
+  m_Layer: 0
+  m_Name: MatchInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2069844079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069844078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d0d19677e0dd547bd6d4e780e8c698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyConfigs:
+  - {fileID: 11400000, guid: dceb3af935b846046accea5ea50b50a0, type: 2}
+  - {fileID: 11400000, guid: 16c3fa78e31b27944991d7453a59944c, type: 2}
+  - {fileID: 11400000, guid: 6195e2bd91ec2f247bb0aba7c5ea097d, type: 2}
+  - {fileID: 11400000, guid: 9edadc649dfc65748b831ba9306fbca8, type: 2}
+  - {fileID: 11400000, guid: 714f4e7decff184448146879557aa566, type: 2}
+  enemySpawnConfig: {fileID: 11400000, guid: 1b6971dfe67c2d94c9b12e27753921ab, type: 2}
+--- !u!4 &2069844080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069844078}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1361,3 +1412,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 244855823}
+  - {fileID: 2069844080}

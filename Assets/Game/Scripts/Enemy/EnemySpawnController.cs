@@ -8,23 +8,22 @@ namespace Game.Scripts.Enemy
 {
     public class EnemySpawnController
     {
-        private EnemySpawnConfig _enemySpawnConfig;
-        private EnemyPool _enemyPool;
-        private CancellationTokenSource _tokenSource;
-        private Camera _camera;
+        private readonly EnemySpawnConfig _enemySpawnConfig;
+        private readonly EnemyPool _enemyPool;
+        private readonly Camera _camera;
+        private readonly CancellationTokenSource _tokenSource;
 
         public EnemySpawnController(EnemySpawnConfig enemySpawnConfig, EnemyPool enemyPool)
         {
             _enemySpawnConfig = enemySpawnConfig;
             _enemyPool = enemyPool;
             _camera = Camera.main;
+            _tokenSource = new CancellationTokenSource();
         }
 
         public void StartSpawn()
         {
-            _enemyPool.CreatePool(_enemySpawnConfig.AmountEnemysForSpawn);
-            _tokenSource = new CancellationTokenSource();
-
+            _enemyPool.CreatePool(_enemySpawnConfig.AmountEnemyInPool);
             Spawn().Forget();
         }
 
@@ -53,24 +52,25 @@ namespace Game.Scripts.Enemy
 
         private (Vector2, int) GetRandomPosition()
         {
-            Vector3 spawnPosition = Vector3.zero;
             int direction = 0;
+            int randomSide = Random.Range(0, 2);
+            Vector2 randomPos = _camera.ViewportToWorldPoint(new Vector2(randomSide, 0));
 
-            var randomPos = _camera.ViewportToWorldPoint(new Vector3(Random.Range(0, 2), 0, 0));
-
-            switch (randomPos.x)
+            switch (randomSide)
             {
                 case 0:
-                    randomPos.x -= 2;
+                    randomPos.x -= _enemySpawnConfig.SpawnPositionOffset;
                     direction = 1;
                     break;
                 case 1:
-                    randomPos.x += 2;
+                    randomPos.x += _enemySpawnConfig.SpawnPositionOffset;
                     direction = -1;
                     break;
             }
 
-            return (spawnPosition, direction);
+            randomPos.y = 0;
+
+            return (randomPos, direction);
         }
     }
 }

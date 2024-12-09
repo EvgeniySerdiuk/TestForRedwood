@@ -27,10 +27,12 @@ namespace Game.Scripts.Enemy
 
             for (int i = 0; i < count; i++)
             {
-                _notActiveEnemies[i] = _factory.CreateRandomEnemyController();
-                _notActiveEnemies[i].CreateView(_spawnRoot);
-                _notActiveEnemies[i].DisableEnemy();
-                _notActiveEnemies[i].OnDeath += DisableEnemy;
+                var enemyController = _factory.CreateRandomEnemyController();
+                enemyController.CreateView(_spawnRoot);
+                enemyController.DisableEnemy();
+                enemyController.OnDeath += DisableEnemy;
+                
+                _notActiveEnemies.Add(enemyController);
             }
         }
 
