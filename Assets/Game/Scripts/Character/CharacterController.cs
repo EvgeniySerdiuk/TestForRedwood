@@ -58,6 +58,11 @@ namespace Game.Scripts.Character
             return _characterModel;
         }
 
+        public CharacterView GetView()
+        {
+            return _characterView;
+        }
+
         private void PickUpAmo(int amount)
         {
             _characterModel.Weapon.RefreshAmountBullet(amount);

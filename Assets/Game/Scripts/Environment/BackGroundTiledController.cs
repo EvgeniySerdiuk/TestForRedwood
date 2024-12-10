@@ -29,7 +29,7 @@ namespace Game.Scripts.Environment
                     newPosition.x += cameraDelta.x * parallaxFactor;
                     spriteRenderer.transform.position = newPosition;
                     spriteRenderer.size =
-                        new Vector2(widthBg + _camera.transform.position.x, spriteRenderer.size.y);
+                        new Vector2( widthBg + Mathf.Abs(_camera.transform.position.x / 2 ), spriteRenderer.size.y);
                 }
 
                 _previousCameraPosition = _camera.transform.position;

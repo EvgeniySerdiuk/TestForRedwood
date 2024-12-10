@@ -9,6 +9,7 @@ public class MatchInstaller : MonoBehaviour
 {
     [SerializeField] private MatchConfig matchConfig;
     [SerializeField] private MatchScreenUI matchScreenUI;
+    [SerializeField] private CameraMatchController cameraMatchController;
 
     private EnemyPool _enemyPool;
     private EnemySpawnController _spawnController;
@@ -37,13 +38,9 @@ public class MatchInstaller : MonoBehaviour
         character.CreateView();
 
         matchScreenUI.Construct(character.GetModel());
+        cameraMatchController.SetTarget(character.GetView().transform);
 
         _gameOverMatchController = new GameOverMatchController(character, matchScreenUI, _spawnController);
         _spawnController.StartSpawn();
-    }
-
-    private void EndMatch()
-    {
-        _spawnController.StopSpawn();
     }
 }
