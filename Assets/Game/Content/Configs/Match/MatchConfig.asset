@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad297ebe663249fe9ab7e043efa77408, type: 3}
   m_Name: MatchConfig
   m_EditorClassIdentifier: 
+  <CharacterConfig>k__BackingField: {fileID: 11400000, guid: 7f8b740d6bf46844fb4890d763066db8, type: 2}
+  <EnemySpawnConfig>k__BackingField: {fileID: 11400000, guid: 1b6971dfe67c2d94c9b12e27753921ab, type: 2}
   <EnemyConfigs>k__BackingField:
   - {fileID: 11400000, guid: dceb3af935b846046accea5ea50b50a0, type: 2}
   - {fileID: 11400000, guid: 16c3fa78e31b27944991d7453a59944c, type: 2}
   - {fileID: 11400000, guid: 6195e2bd91ec2f247bb0aba7c5ea097d, type: 2}
   - {fileID: 11400000, guid: 9edadc649dfc65748b831ba9306fbca8, type: 2}
   - {fileID: 11400000, guid: 714f4e7decff184448146879557aa566, type: 2}
-  <EnemySpawnConfig>k__BackingField: {fileID: 11400000, guid: 1b6971dfe67c2d94c9b12e27753921ab, type: 2}

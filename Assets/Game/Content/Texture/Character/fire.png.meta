@@ -160,9 +160,9 @@ TextureImporter:
       name: Character_fire_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 5
         y: 0
-        width: 304
+        width: 295
         height: 278
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -182,9 +182,9 @@ TextureImporter:
       name: Character_fire_2
       rect:
         serializedVersion: 2
-        x: 312
+        x: 307
         y: 0
-        width: 219
+        width: 295
         height: 278
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -206,7 +206,7 @@ TextureImporter:
         serializedVersion: 2
         x: 606
         y: 0
-        width: 290
+        width: 295
         height: 278
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -226,9 +226,9 @@ TextureImporter:
       name: Character_fire_4
       rect:
         serializedVersion: 2
-        x: 902
+        x: 908
         y: 0
-        width: 302
+        width: 295
         height: 278
       alignment: 7
       pivot: {x: 0.5, y: 0}
