@@ -9,6 +9,7 @@ namespace Game.Scripts.Enemy
         public Action<int> OnHit;
 
         [field: SerializeField] public EnemyHealthBar HealthBar { get; private set; }
+        [SerializeField] private Rigidbody2D rigidBody;
 
         private float _speed;
 
@@ -31,15 +32,15 @@ namespace Game.Scripts.Enemy
 
         private IEnumerator Move(Vector3 direction)
         {
-            var newScale = transform.localScale;
+            var newScale = Vector3.one;
             newScale.x *= direction.x;
             transform.localScale = newScale;
             
             while (true)
             {
-                var pos = direction * (_speed * Time.deltaTime);
-                transform.position += pos;
-                yield return null;
+                var pos = direction * (_speed * Time.fixedDeltaTime);
+                rigidBody.MovePosition(transform.position + pos);
+                yield return new WaitForFixedUpdate();
             }
         }
 

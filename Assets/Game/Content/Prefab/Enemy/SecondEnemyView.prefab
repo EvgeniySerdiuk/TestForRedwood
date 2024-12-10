@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5644513146884332421}
   - component: {fileID: 4063535575717091474}
   - component: {fileID: 9097366051780736583}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5879940869236520316}
   - component: {fileID: 8649057909398568263}
-  m_Layer: 0
+  - component: {fileID: 7960323093777433494}
+  - component: {fileID: 4323831592382225918}
+  m_Layer: 7
   m_Name: SecondEnemyView
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -157,6 +159,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HealthBar>k__BackingField: {fileID: 2509851461892253132}
+  rigidBody: {fileID: 4323831592382225918}
+--- !u!70 &7960323093777433494
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8860589218836078034}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 320
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 320
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 3}
+  m_Size: {x: 3.5, y: 6.5}
+  m_Direction: 0
+--- !u!50 &4323831592382225918
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8860589218836078034}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &6181207737526654454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,9 +272,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1172843507970203586, guid: 19bdd81d3e4df2643a2acacb10e77706, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3690740654040735739, guid: 19bdd81d3e4df2643a2acacb10e77706, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690740654040735739, guid: 19bdd81d3e4df2643a2acacb10e77706, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

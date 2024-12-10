@@ -30,6 +30,7 @@ namespace Game.Scripts.Enemy
         {
             _enemyView.transform.position = position;
             _enemyView.gameObject.SetActive(true);
+            _enemyView.OnHit += Hit;
         }
 
         public void StartMove(int direction)
@@ -40,6 +41,7 @@ namespace Game.Scripts.Enemy
         public void DisableEnemy()
         {
             _enemyView.gameObject.SetActive(false);
+            _enemyView.OnHit -= Hit;
         }
 
         private void Hit(int damage)
@@ -49,6 +51,7 @@ namespace Game.Scripts.Enemy
 
             if (_enemyModel.CurrentHealth < 1)
             {
+                _enemyModel.ResetHealth();
                 OnDeath?.Invoke(this);
             }
         }

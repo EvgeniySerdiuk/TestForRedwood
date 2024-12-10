@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Game.Scripts.Enemy;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Game.Scripts.Weapon
 {
     public class BulletView : MonoBehaviour
     {
+        [SerializeField] private Rigidbody2D rigidBody;
+        
         private int _damage;
         private float _delayBeforeDisable;
         private float _speed;
@@ -33,9 +36,9 @@ namespace Game.Scripts.Weapon
             
             while (true)
             {
-                var pos = direction * (_speed * Time.deltaTime);
-                transform.position += pos;
-                yield return null;
+                var pos = direction * (_speed * Time.fixedDeltaTime);
+                rigidBody.MovePosition(transform.position + pos);
+                yield return new WaitForFixedUpdate();
             }
         }
 
@@ -45,9 +48,9 @@ namespace Game.Scripts.Weapon
             Disable();
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            other.GetComponent<EnemyView>().Hit(_damage);
+            other.gameObject.GetComponent<EnemyView>().Hit(_damage);
             Disable();
         }
 

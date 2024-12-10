@@ -46,6 +46,7 @@ namespace Game.Scripts.Enemy
 
         private void DisableEnemy(EnemyController enemyController)
         {
+            enemyController.DisableEnemy();
             _notActiveEnemies.Add(enemyController);
         }
     }
