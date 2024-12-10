@@ -35,7 +35,7 @@ namespace Game.Scripts.Enemy
 
         private async UniTaskVoid Spawn()
         {
-            while (true)
+            while (!_tokenSource.IsCancellationRequested)
             {
                 var enemy = _enemyPool.GetRandomEnemy();
 
@@ -46,7 +46,7 @@ namespace Game.Scripts.Enemy
 
                 int delay = Random.Range(_enemySpawnConfig.RangeSpawnDelay.x, _enemySpawnConfig.RangeSpawnDelay.y + 1);
 
-                await UniTask.Delay(TimeSpan.FromSeconds(delay));
+                await UniTask.Delay(TimeSpan.FromSeconds(delay), cancellationToken: _tokenSource.Token);
             }
         }
 

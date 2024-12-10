@@ -15,6 +15,7 @@ public class MatchInstaller : MonoBehaviour
     private EnemyControllersFactory _enemyControllersFactory;
     private CharacterControllerFactory _characterControllerFactory;
     private AmoSpawnController _amoSpawnController;
+    private GameOverMatchController _gameOverMatchController;
 
     private void Awake()
     {
@@ -27,10 +28,22 @@ public class MatchInstaller : MonoBehaviour
 
     private void Start()
     {
+        StartMatch();
+    }
+
+    private void StartMatch()
+    {
         var character = _characterControllerFactory.CreateCharacterController();
         character.CreateView();
-        
+
         matchScreenUI.Construct(character.GetModel());
+
+        _gameOverMatchController = new GameOverMatchController(character, matchScreenUI, _spawnController);
         _spawnController.StartSpawn();
+    }
+
+    private void EndMatch()
+    {
+        _spawnController.StopSpawn();
     }
 }

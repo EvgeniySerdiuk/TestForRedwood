@@ -5,12 +5,18 @@ namespace Game.Scripts.UI
 {
     public class MatchScreenUI : MonoBehaviour
     {
-        [SerializeField] private AmoCounterUI amoCounterUI;
+        [field: SerializeField] public AmoCounterUI AmoCounterUI {get; private set;}
+        [field: SerializeField] public GameOverScreen GameOverScreen {get; private set;}
         
         public void Construct(CharacterModel characterModel)
         {
-            amoCounterUI.RefreshCounter(characterModel.Weapon.CurrentAmountBullet);
-            characterModel.Weapon.BulletAmountChanged += amoCounterUI.RefreshCounter;
+            AmoCounterUI.RefreshCounter(characterModel.Weapon.CurrentAmountBullet);
+            characterModel.Weapon.BulletAmountChanged += AmoCounterUI.RefreshCounter;
+        }
+
+        public void ShowGameOverScreen()
+        {
+            GameOverScreen.Show();
         }
     }
 }
