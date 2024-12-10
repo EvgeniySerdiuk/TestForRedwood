@@ -16,5 +16,10 @@ namespace Game.Scripts.Character
             MaxHealth = config.Health;
             Weapon = new WeaponModel(config.Weapon);
         }
+
+        public void TakeDamage(int damage)
+        {
+            CurrentHealth -= damage;
+        }
     }
 }

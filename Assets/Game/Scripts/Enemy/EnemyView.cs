@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Game.Scripts.Character;
 using UnityEngine;
 
 namespace Game.Scripts.Enemy
@@ -41,6 +42,14 @@ namespace Game.Scripts.Enemy
                 var pos = direction * (_speed * Time.fixedDeltaTime);
                 rigidBody.MovePosition(transform.position + pos);
                 yield return new WaitForFixedUpdate();
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.TryGetComponent<CharacterView>(out var view))
+            {
+                view.TakeDamage(1);
             }
         }
 

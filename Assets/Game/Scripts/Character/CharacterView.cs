@@ -7,6 +7,7 @@ namespace Game.Scripts.Character
 {
     public class CharacterView : MonoBehaviour
     {
+        public Action<int> OnTakeDamage;
         public Action<int> OnPickUpAmo;
         
         [field: SerializeField] public Transform BulletSpawnPosition { get; private set; }
@@ -55,9 +56,19 @@ namespace Game.Scripts.Character
             }
         }
 
+        public void TakeDamage(int amount)
+        {
+            OnTakeDamage?.Invoke(amount);
+        }
+
         public void PickUpAmo(int amount)
         {
             OnPickUpAmo?.Invoke(amount);
+        }
+
+        private void OnDestroy()
+        {
+            StopAllCoroutines();
         }
     }
 }

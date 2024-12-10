@@ -10,9 +10,13 @@ namespace Game.Scripts.Character
 {
     public class CharacterController
     {
+        public Action CharacterDeath;
+
         private readonly BulletPool _bulletPool;
         private readonly CharacterModel _characterModel;
-        
+        private readonly InputAction _moveAction;
+        private readonly InputAction _attackAction;
+
         private CharacterView _characterView;
         private CancellationTokenSource _tokenSource;
 
@@ -21,6 +25,9 @@ namespace Game.Scripts.Character
             _characterView = characterView;
             _characterModel = characterModel;
             _bulletPool = bulletPool;
+
+            _moveAction = InputSystem.actions.FindAction("Move");
+            _attackAction = InputSystem.actions.FindAction("Attack");
         }
 
         public void CreateView()
@@ -29,8 +36,21 @@ namespace Game.Scripts.Character
             _characterView = Object.Instantiate(viewPrefab, Vector3.zero, Quaternion.identity);
             _characterView.Construct(_characterModel);
             _characterView.OnPickUpAmo += PickUpAmo;
+            _characterView.OnTakeDamage += TakeDamage;
 
             SubscribeInput();
+        }
+
+        private void TakeDamage(int damage)
+        {
+            _characterModel.TakeDamage(damage);
+
+            if (_characterModel.CurrentHealth < 1)
+            {
+                UnsubscribeInput();
+                CharacterDeath?.Invoke();
+                Object.Destroy(_characterView.gameObject);
+            }
         }
 
         public CharacterModel GetModel()
@@ -45,14 +65,20 @@ namespace Game.Scripts.Character
 
         private void SubscribeInput()
         {
-            var moveAction = InputSystem.actions.FindAction("Move");
-            var attackAction = InputSystem.actions.FindAction("Attack");
+            _moveAction.performed += _characterView.OnMove;
+            _moveAction.canceled += _characterView.OnMoveCancel;
 
-            moveAction.performed += _characterView.OnMove;
-            moveAction.canceled += _characterView.OnMoveCancel;
-            
-            attackAction.started += OnShot;
-            attackAction.canceled += OnShotCancel;
+            _attackAction.started += OnShot;
+            _attackAction.canceled += OnShotCancel;
+        }
+
+        private void UnsubscribeInput()
+        {
+            _moveAction.performed -= _characterView.OnMove;
+            _moveAction.canceled -= _characterView.OnMoveCancel;
+
+            _attackAction.started -= OnShot;
+            _attackAction.canceled -= OnShotCancel;
         }
 
         private void OnShot(InputAction.CallbackContext obj)
@@ -62,7 +88,7 @@ namespace Game.Scripts.Character
                 _tokenSource = new CancellationTokenSource();
                 _characterView.OnShot(obj);
 
-                Shot().Forget(); 
+                Shot().Forget();
             }
         }
 
@@ -80,7 +106,7 @@ namespace Game.Scripts.Character
             {
                 _bulletPool.GetBullet().MoveTo(_characterView.BulletSpawnPosition.position,
                     new Vector2(_characterView.transform.localScale.x, 0));
-                
+
                 _characterModel.Weapon.RefreshAmountBullet(-1);
 
                 await UniTask.Delay(TimeSpan.FromSeconds(_characterModel.Weapon.AttackSpeed),
