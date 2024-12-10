@@ -2,6 +2,7 @@ using Game.Scripts.Amo;
 using Game.Scripts.Character;
 using Game.Scripts.Enemy;
 using Game.Scripts.Match;
+using Game.Scripts.SFX;
 using Game.Scripts.UI;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class MatchInstaller : MonoBehaviour
     [SerializeField] private MatchConfig matchConfig;
     [SerializeField] private MatchScreenUI matchScreenUI;
     [SerializeField] private CameraMatchController cameraMatchController;
+    [SerializeField] private SFXController sfxController;
 
     private EnemyPool _enemyPool;
     private EnemySpawnController _spawnController;
@@ -21,10 +23,11 @@ public class MatchInstaller : MonoBehaviour
     private void Awake()
     {
         _amoSpawnController = new AmoSpawnController(matchConfig.AmoSpawnConfig);
-        _enemyControllersFactory = new EnemyControllersFactory(matchConfig.EnemyConfigs, _amoSpawnController);
+        _enemyControllersFactory =
+            new EnemyControllersFactory(matchConfig.EnemyConfigs, _amoSpawnController, sfxController);
         _enemyPool = new EnemyPool(_enemyControllersFactory);
         _spawnController = new EnemySpawnController(matchConfig.EnemySpawnConfig, _enemyPool);
-        _characterControllerFactory = new CharacterControllerFactory(matchConfig.CharacterConfig);
+        _characterControllerFactory = new CharacterControllerFactory(matchConfig.CharacterConfig, sfxController);
     }
 
     private void Start()

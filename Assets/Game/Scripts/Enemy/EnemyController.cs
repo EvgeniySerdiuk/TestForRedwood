@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Scripts.Amo;
+using Game.Scripts.SFX;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -11,14 +12,16 @@ namespace Game.Scripts.Enemy
 
         private readonly EnemyModel _enemyModel;
         private readonly AmoSpawnController _amoSpawnController;
+        private readonly SFXController _sfxController;
 
         private EnemyView _enemyView;
 
-        public EnemyController(EnemyModel enemyModel, EnemyView enemyView, AmoSpawnController amoSpawnController)
+        public EnemyController(EnemyModel enemyModel, EnemyView enemyView, AmoSpawnController amoSpawnController, SFXController sfxController)
         {
             _enemyModel = enemyModel;
             _enemyView = enemyView;
             _amoSpawnController = amoSpawnController;
+            _sfxController = sfxController;
         }
 
         public void CreateView(Transform spawnRoot)
@@ -49,6 +52,7 @@ namespace Game.Scripts.Enemy
 
         private void Hit(int damage)
         {
+            _sfxController.PlayHitZombieClip();
             _enemyModel.TakeDamage(damage);
             _enemyView.HealthBar.RefreshProgressBar(_enemyModel.CurrentHealth);
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Game.Scripts.SFX;
 using Game.Scripts.Weapon;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,17 +15,20 @@ namespace Game.Scripts.Character
 
         private readonly BulletPool _bulletPool;
         private readonly CharacterModel _characterModel;
+        private readonly SFXController _sfxController;
         private readonly InputAction _moveAction;
         private readonly InputAction _attackAction;
 
         private CharacterView _characterView;
         private CancellationTokenSource _tokenSource;
 
-        public CharacterController(CharacterView characterView, CharacterModel characterModel, BulletPool bulletPool)
+        public CharacterController(CharacterView characterView, CharacterModel characterModel, BulletPool bulletPool,
+            SFXController sfxController)
         {
             _characterView = characterView;
             _characterModel = characterModel;
             _bulletPool = bulletPool;
+            _sfxController = sfxController;
 
             _moveAction = InputSystem.actions.FindAction("Move");
             _attackAction = InputSystem.actions.FindAction("Attack");
@@ -65,6 +69,7 @@ namespace Game.Scripts.Character
 
         private void PickUpAmo(int amount)
         {
+            _sfxController.PlayPicUpAmoClip();
             _characterModel.Weapon.RefreshAmountBullet(amount);
         }
 
@@ -109,6 +114,8 @@ namespace Game.Scripts.Character
         {
             while (!_tokenSource.IsCancellationRequested)
             {
+                _sfxController.PlayShotClip();
+
                 _bulletPool.GetBullet().MoveTo(_characterView.BulletSpawnPosition.position,
                     new Vector2(_characterView.transform.localScale.x, 0));
 
