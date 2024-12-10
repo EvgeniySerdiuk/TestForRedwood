@@ -4,7 +4,7 @@ namespace Game.Scripts.Character
 {
     public class CharacterControllerFactory
     {
-        private CharacterConfig _config;
+        private readonly CharacterConfig _config;
 
         public CharacterControllerFactory(CharacterConfig config)
         {

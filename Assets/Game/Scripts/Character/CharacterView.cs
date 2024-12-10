@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,8 @@ namespace Game.Scripts.Character
 {
     public class CharacterView : MonoBehaviour
     {
+        public Action<int> OnPickUpAmo;
+        
         [field: SerializeField] public Transform BulletSpawnPosition { get; private set; }
         [SerializeField] private Animator animator;
 
@@ -50,6 +53,11 @@ namespace Game.Scripts.Character
                 transform.position += direction * (_speed * Time.deltaTime);
                 yield return null;
             }
+        }
+
+        public void PickUpAmo(int amount)
+        {
+            OnPickUpAmo?.Invoke(amount);
         }
     }
 }

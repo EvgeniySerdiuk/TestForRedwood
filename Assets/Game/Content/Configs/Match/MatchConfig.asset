@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CharacterConfig>k__BackingField: {fileID: 11400000, guid: 7f8b740d6bf46844fb4890d763066db8, type: 2}
   <EnemySpawnConfig>k__BackingField: {fileID: 11400000, guid: 1b6971dfe67c2d94c9b12e27753921ab, type: 2}
+  <AmoSpawnConfig>k__BackingField: {fileID: 11400000, guid: d9d77350d14f6264aa91a08ccda6ecc5, type: 2}
   <EnemyConfigs>k__BackingField:
   - {fileID: 11400000, guid: dceb3af935b846046accea5ea50b50a0, type: 2}
   - {fileID: 11400000, guid: 16c3fa78e31b27944991d7453a59944c, type: 2}

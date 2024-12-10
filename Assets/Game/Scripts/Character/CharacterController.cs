@@ -10,10 +10,10 @@ namespace Game.Scripts.Character
 {
     public class CharacterController
     {
+        private readonly BulletPool _bulletPool;
+        private readonly CharacterModel _characterModel;
+        
         private CharacterView _characterView;
-        private CharacterModel _characterModel;
-        private BulletPool _bulletPool;
-
         private CancellationTokenSource _tokenSource;
 
         public CharacterController(CharacterView characterView, CharacterModel characterModel, BulletPool bulletPool)
@@ -28,8 +28,19 @@ namespace Game.Scripts.Character
             var viewPrefab = _characterView;
             _characterView = Object.Instantiate(viewPrefab, Vector3.zero, Quaternion.identity);
             _characterView.Construct(_characterModel);
+            _characterView.OnPickUpAmo += PickUpAmo;
 
             SubscribeInput();
+        }
+
+        public CharacterModel GetModel()
+        {
+            return _characterModel;
+        }
+
+        private void PickUpAmo(int amount)
+        {
+            _characterModel.Weapon.RefreshAmountBullet(amount);
         }
 
         private void SubscribeInput()
@@ -39,19 +50,20 @@ namespace Game.Scripts.Character
 
             moveAction.performed += _characterView.OnMove;
             moveAction.canceled += _characterView.OnMoveCancel;
-
-            attackAction.started += _characterView.OnShot;
+            
             attackAction.started += OnShot;
-            attackAction.canceled += _characterView.OnShotCancel;
             attackAction.canceled += OnShotCancel;
         }
 
         private void OnShot(InputAction.CallbackContext obj)
         {
-            _tokenSource = new CancellationTokenSource();
-            _characterView.OnShot(obj);
+            if (_characterModel.Weapon.CurrentAmountBullet > 0)
+            {
+                _tokenSource = new CancellationTokenSource();
+                _characterView.OnShot(obj);
 
-            Shot().Forget();
+                Shot().Forget(); 
+            }
         }
 
         private void OnShotCancel(InputAction.CallbackContext obj)

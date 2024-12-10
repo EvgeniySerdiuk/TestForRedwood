@@ -4,6 +4,7 @@ namespace Game.Scripts.Weapon
 {
     public class WeaponModel
     {
+        public Action<int> BulletAmountChanged;
         public Action BulletEnded;
         
         public int Damage { get; private set; }
@@ -20,7 +21,8 @@ namespace Game.Scripts.Weapon
         public void RefreshAmountBullet(int amount)
         {
             CurrentAmountBullet += amount;
-
+            BulletAmountChanged.Invoke(CurrentAmountBullet);
+            
             if (CurrentAmountBullet < 1)
             {
                 BulletEnded?.Invoke();

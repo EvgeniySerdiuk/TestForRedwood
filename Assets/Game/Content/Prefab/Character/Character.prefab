@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3727545854967493100}
   - component: {fileID: 3661838573221076982}
   - component: {fileID: 4688311779030621995}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8985341720920707342}
   - component: {fileID: 2686823538740253107}
-  m_Layer: 0
+  - component: {fileID: 3202308891109273718}
+  m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -158,6 +159,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BulletSpawnPosition>k__BackingField: {fileID: 8166608385218206253}
   animator: {fileID: 4688311779030621995}
+--- !u!70 &3202308891109273718
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116122042422072382}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 640
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 640
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.014157176, y: 2.5623915}
+  m_Size: {x: 3.3030584, y: 6.124783}
+  m_Direction: 0
 --- !u!1 &5373449048083092313
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8166608385218206253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}

@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Scripts.Amo;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -9,13 +10,15 @@ namespace Game.Scripts.Enemy
         public Action<EnemyController> OnDeath;
 
         private readonly EnemyModel _enemyModel;
+        private readonly AmoSpawnController _amoSpawnController;
 
         private EnemyView _enemyView;
 
-        public EnemyController(EnemyModel enemyModel, EnemyView enemyView)
+        public EnemyController(EnemyModel enemyModel, EnemyView enemyView, AmoSpawnController amoSpawnController)
         {
             _enemyModel = enemyModel;
             _enemyView = enemyView;
+            _amoSpawnController = amoSpawnController;
         }
 
         public void CreateView(Transform spawnRoot)
@@ -51,6 +54,7 @@ namespace Game.Scripts.Enemy
 
             if (_enemyModel.CurrentHealth < 1)
             {
+                _amoSpawnController.RandomSpawnAmo(_enemyView.transform.position);
                 _enemyModel.ResetHealth();
                 OnDeath?.Invoke(this);
             }
