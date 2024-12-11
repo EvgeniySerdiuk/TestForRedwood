@@ -12,6 +12,7 @@ namespace Game.Scripts.Character
     public class CharacterController
     {
         public Action CharacterDeath;
+        public Action BulletEnded;
 
         private readonly BulletPool _bulletPool;
         private readonly CharacterModel _characterModel;
@@ -93,13 +94,10 @@ namespace Game.Scripts.Character
 
         private void OnShot(InputAction.CallbackContext obj)
         {
-            if (_characterModel.Weapon.CurrentAmountBullet > 0)
-            {
-                _tokenSource = new CancellationTokenSource();
-                _characterView.OnShot(obj);
+            _tokenSource = new CancellationTokenSource();
+            _characterView.OnShot(obj);
 
-                Shot().Forget();
-            }
+            Shot().Forget();
         }
 
         private void OnShotCancel(InputAction.CallbackContext obj)
@@ -120,6 +118,14 @@ namespace Game.Scripts.Character
                     new Vector2(_characterView.transform.localScale.x, 0));
 
                 _characterModel.Weapon.RefreshAmountBullet(-1);
+
+                if (_characterModel.Weapon.CurrentAmountBullet <= 0)
+                {
+                    UnsubscribeInput();
+                    BulletEnded?.Invoke();
+                    Object.Destroy(_characterView.gameObject);
+                    return;
+                }
 
                 await UniTask.Delay(TimeSpan.FromSeconds(_characterModel.Weapon.AttackSpeed),
                     cancellationToken: _tokenSource.Token);

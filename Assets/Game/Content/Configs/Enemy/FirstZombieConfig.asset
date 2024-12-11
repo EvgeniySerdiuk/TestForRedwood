@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c6aa52d036b774c94082c2a4f98d54, type: 3}
   m_Name: FirstZombieConfig
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 100
-  <MovementSpeed>k__BackingField: 1
+  <Health>k__BackingField: 200
+  <MovementSpeed>k__BackingField: 0.7
   <View>k__BackingField: {fileID: 2909458389969618144, guid: 87711ca7656323542bb2278dc189ac75, type: 3}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af13c7b27f2b4c81873039331e1ffaa0, type: 3}
   m_Name: WeaponAk47
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 10
+  <Damage>k__BackingField: 20
   <AttackSpeed>k__BackingField: 0.3
   <StartAmountBullet>k__BackingField: 100
   <BulletView>k__BackingField: {fileID: -7398080111816115470, guid: d1b147f7f7a3489478bc819dee98ef04, type: 3}
-  <BulletSpeed>k__BackingField: 20
-  <DelayBeforeDisableBullet>k__BackingField: 5
+  <BulletSpeed>k__BackingField: 25
+  <DelayBeforeDisableBullet>k__BackingField: 3

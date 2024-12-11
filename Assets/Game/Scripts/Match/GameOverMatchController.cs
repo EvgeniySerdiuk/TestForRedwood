@@ -21,11 +21,14 @@ namespace Game.Scripts.Match
             _spawnController = spawnController;
 
             _characterController.CharacterDeath += GameOver;
+            _characterController.BulletEnded += GameOver;
         }
 
         private void GameOver()
         {
             _characterController.CharacterDeath -= GameOver;
+            _characterController.BulletEnded -= GameOver;
+
             _spawnController.StopSpawn();
             InputSystem.actions.Disable();
 

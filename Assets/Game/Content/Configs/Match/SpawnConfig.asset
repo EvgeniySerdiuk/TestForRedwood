@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992be176772d4ed8aec917f430d30bed, type: 3}
   m_Name: SpawnConfig
   m_EditorClassIdentifier: 
-  <AmountEnemyInPool>k__BackingField: 20
+  <AmountEnemyInPool>k__BackingField: 30
   <SpawnPositionOffset>k__BackingField: 5
-  <RangeSpawnDelay>k__BackingField: {x: 1, y: 5}
+  <RangeSpawnDelay>k__BackingField: {x: 3, y: 6}

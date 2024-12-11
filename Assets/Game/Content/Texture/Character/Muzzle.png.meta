@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf6a4d6d5de4bdf4eb78379648457560
+guid: b68e0cef6a834254db70808795761139
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -157,89 +157,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_fire_1
+      name: Muzzle_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 6
         y: 0
-        width: 220
+        width: 224
         height: 278
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 64, w: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0b4b3d13d31aaa370800000000000000
-      internalID: 8334651344603559088
+      spriteID: 2af1a0712d20fed44bf762c9c5e5ea69
+      internalID: -1329507824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_fire_2
+      name: Muzzle_1
       rect:
         serializedVersion: 2
-        x: 302
-        y: 0
-        width: 226
-        height: 278
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 231
+        y: 157
+        width: 70
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dcde05733e4acfb80800000000000000
-      internalID: -8359625512513901107
+      spriteID: 8f9d812e31c911341bec3b0c89001ba5
+      internalID: 966593214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_fire_3
+      name: Muzzle_2
       rect:
         serializedVersion: 2
-        x: 563
+        x: 313
         y: 0
-        width: 270
+        width: 217
         height: 278
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 83e62bc8dee305c60800000000000000
-      internalID: 7804807344221744696
+      spriteID: 41a28a193cef2a64b872624119547179
+      internalID: 161357121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_fire_4
+      name: Muzzle_3
       rect:
         serializedVersion: 2
-        x: 908
+        x: 614
         y: 0
-        width: 295
+        width: 218
         height: 278
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 90c363eb5b4e66200800000000000000
-      internalID: 173077104931781641
+      spriteID: ad539fd7286e3b04a85b85d74294e6e0
+      internalID: 93964854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Muzzle_4
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 164
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c949a7672c2be4cbac58cc389b7c9a
+      internalID: 370773899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Muzzle_5
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 0
+        width: 230
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b7610601843d84a8aa810c4c41850d
+      internalID: 546324217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Muzzle_6
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 173
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecbaae2fbd1540942a5141e583060a49
+      internalID: 1469017687
       vertices: []
       indices: 
       edges: []
@@ -258,10 +324,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Character_fire_1: 8334651344603559088
-      Character_fire_2: -8359625512513901107
-      Character_fire_3: 7804807344221744696
-      Character_fire_4: 173077104931781641
+      Muzzle_0: -1329507824
+      Muzzle_1: 966593214
+      Muzzle_2: 161357121
+      Muzzle_3: 93964854
+      Muzzle_4: 370773899
+      Muzzle_5: 546324217
+      Muzzle_6: 1469017687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

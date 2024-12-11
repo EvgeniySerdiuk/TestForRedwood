@@ -9,9 +9,11 @@ namespace Game.Scripts.Character
     {
         public Action<int> OnTakeDamage;
         public Action<int> OnPickUpAmo;
-        
+
         [field: SerializeField] public Transform BulletSpawnPosition { get; private set; }
-        [SerializeField] private Animator animator;
+
+        [SerializeField] private Animator characterAnimator;
+        [SerializeField] private Animator weaponAnimator;
 
         private Coroutine _moveCoroutine;
         private float _speed;
@@ -23,18 +25,18 @@ namespace Game.Scripts.Character
 
         public void OnShotCancel(InputAction.CallbackContext obj)
         {
-            animator.SetTrigger("Idle");
+            weaponAnimator.SetTrigger("Off");
         }
 
         public void OnShot(InputAction.CallbackContext obj)
         {
-            animator.SetTrigger("Attack");
+            weaponAnimator.SetTrigger("On");
         }
 
         public void OnMoveCancel(InputAction.CallbackContext obj)
         {
             StopCoroutine(_moveCoroutine);
-            animator.SetTrigger("Idle");
+            characterAnimator.SetTrigger("Idle");
         }
 
         public void OnMove(InputAction.CallbackContext obj)
@@ -47,7 +49,7 @@ namespace Game.Scripts.Character
 
         private IEnumerator Move(Vector3 direction)
         {
-            animator.SetTrigger("Run");
+            characterAnimator.SetTrigger("Run");
 
             while (true)
             {

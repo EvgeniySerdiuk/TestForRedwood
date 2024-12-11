@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ba6511d34e4e71b96ab97f8e36d21f, type: 3}
   m_Name: AmoSpawnConfig
   m_EditorClassIdentifier: 
-  <AmountSpawnRange>k__BackingField: {x: 5, y: 50}
-  <ChanceSpawnAmo>k__BackingField: 35
+  <AmountSpawnRange>k__BackingField: {x: 5, y: 20}
+  <ChanceSpawnAmo>k__BackingField: 70
   <View>k__BackingField: {fileID: 9007707735449765692, guid: a33d0f4f0ad6cef4791c52dc157b72fe, type: 3}

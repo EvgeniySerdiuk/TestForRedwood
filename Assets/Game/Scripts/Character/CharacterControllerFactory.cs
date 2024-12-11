@@ -16,7 +16,7 @@ namespace Game.Scripts.Character
 
         public CharacterController CreateCharacterController()
         {
-            var newBulletPool = new BulletPool(_config.Weapon, _config.Weapon.StartAmountBullet * 2);
+            var newBulletPool = new BulletPool(_config.Weapon, _config.Weapon.StartAmountBullet);
             return new CharacterController(_config.View, new CharacterModel(_config), newBulletPool, _sfxController);
         }
     }

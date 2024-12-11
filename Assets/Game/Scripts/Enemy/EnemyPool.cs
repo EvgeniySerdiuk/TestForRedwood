@@ -9,6 +9,7 @@ namespace Game.Scripts.Enemy
 
         private Transform _spawnRoot;
         private List<EnemyController> _notActiveEnemies;
+        private int _count;
 
         public EnemyPool(EnemyControllersFactory factory)
         {
@@ -22,6 +23,7 @@ namespace Game.Scripts.Enemy
                 Debug.LogWarning("Pool has been created!");
             }
 
+            _count = count;
             _spawnRoot = new GameObject("EnemyPool").transform;
             _notActiveEnemies = new();
 
@@ -31,13 +33,18 @@ namespace Game.Scripts.Enemy
                 enemyController.CreateView(_spawnRoot);
                 enemyController.DisableEnemy();
                 enemyController.OnDeath += DisableEnemy;
-                
+
                 _notActiveEnemies.Add(enemyController);
             }
         }
 
         public EnemyController GetRandomEnemy()
         {
+            if (_notActiveEnemies.Count == 0)
+            {
+                AddEnemyInPool(_count);
+            }
+
             var randomEnemy = _notActiveEnemies[Random.Range(0, _notActiveEnemies.Count)];
             _notActiveEnemies.Remove(randomEnemy);
 
@@ -50,9 +57,17 @@ namespace Game.Scripts.Enemy
             _notActiveEnemies.Add(enemyController);
         }
 
-        private void DisableAllEnemy()
+        private void AddEnemyInPool(int count)
         {
-            
+            for (int i = 0; i < count; i++)
+            {
+                var enemyController = _factory.CreateRandomEnemyController();
+                enemyController.CreateView(_spawnRoot);
+                enemyController.DisableEnemy();
+                enemyController.OnDeath += DisableEnemy;
+
+                _notActiveEnemies.Add(enemyController);
+            }
         }
     }
 }

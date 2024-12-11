@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c6aa52d036b774c94082c2a4f98d54, type: 3}
   m_Name: SecondZombieConfig
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 100
-  <MovementSpeed>k__BackingField: 1
+  <Health>k__BackingField: 80
+  <MovementSpeed>k__BackingField: 1.5
   <View>k__BackingField: {fileID: 8649057909398568263, guid: e769dd2696144034593a7d44812cdb92, type: 3}
