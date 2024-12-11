@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FifthZombieConfig
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 120
-  <MovementSpeed>k__BackingField: 1.1
+  <MovementSpeed>k__BackingField: 1.5
   <View>k__BackingField: {fileID: 2315676169272003875, guid: 87793ceb1b227124eb1a33114d6bd197, type: 3}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ThirdZombieConfig
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 70
-  <MovementSpeed>k__BackingField: 1.3
+  <MovementSpeed>k__BackingField: 2.5
   <View>k__BackingField: {fileID: 8032541883968632204, guid: 390565a835a18444f941e3eae051e6aa, type: 3}
